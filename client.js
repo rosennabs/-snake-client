@@ -7,8 +7,14 @@ const connectToGame = function () {
     port: 50541,
   });
 
-  //timeout the game server when idle for 5secs
-  conn.setTimeout(5000);
+  //print a message when connection is established & display player's name
+  conn.on("connect", () => {
+    console.log("Successfully connected to game server!");
+    conn.write("Name: RCO")
+  });
+
+  //timeout the game server when idle for 10 secs
+  conn.setTimeout(10000);
   conn.on("timeout", () => {
     console.log("You ded cuz you idled!");
   });
@@ -21,7 +27,9 @@ const connectToGame = function () {
 console.log("Connecting ...");
 connectToGame();
 
-//create a client module
+
+
+//create and export client module
 const connect = connectToGame;
 
 module.exports = {
