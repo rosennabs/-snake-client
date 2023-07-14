@@ -1,13 +1,13 @@
 const net = require('net');
 
-//establish a connection with the game server
-const connectToGame = function () {
+// establish a connection with the game server
+const connect = function () {
   const conn = net.createConnection({
     host: "localhost",
     port: 50541,
   });
 
-  //print a message when connection is established & display player's name
+  // print a message when connection is established & display player's name
   conn.on("connect", () => {
     console.log("Successfully connected to game server!");
     conn.write("Name: RCO");
@@ -18,7 +18,7 @@ const connectToGame = function () {
     
   });
 
-  //timeout the game server when idle for 10 secs
+  // timeout the game server when idle for 10 secs
   conn.setTimeout(5000);
   conn.on("timeout", () => {
     console.log("You ded cuz you idled!");
@@ -29,13 +29,9 @@ const connectToGame = function () {
   return conn;
 };
 
-console.log("Connecting ...");
-connectToGame();
 
 
-
-//create and export client module
-const connect = connectToGame;
+// create and export client module
 
 module.exports = {
   connect
