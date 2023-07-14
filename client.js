@@ -10,11 +10,16 @@ const connectToGame = function () {
   //print a message when connection is established & display player's name
   conn.on("connect", () => {
     console.log("Successfully connected to game server!");
-    conn.write("Name: RCO")
+    conn.write("Name: RCO");
+
+    // setInterval(() => {
+    //   conn.write("Move: up");
+    // }, 1000);
+    
   });
 
   //timeout the game server when idle for 10 secs
-  conn.setTimeout(10000);
+  conn.setTimeout(5000);
   conn.on("timeout", () => {
     console.log("You ded cuz you idled!");
   });
