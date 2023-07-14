@@ -16,16 +16,20 @@ const setupInput = function (conn) {
 
 // takes keyboard inputs from client
 const handleUserInput = function (key) {
-  
+
   // bind movement commands to W A S D keys and send commands to game server
   if (key === "w") {
+    connection.write("Say: chase it!");
     connection.write("Move: up");
   } else if (key === "a") {
     connection.write("Move: left");
+    connection.write("Say: BRAVO");
   } else if (key === "s") {
     connection.write("Move: down");
+    connection.write("Say: Go!");
   } else if (key === "d") {
     connection.write("Move: right");
+    connection.write("Say: Yes!");
   } else if (key === "\u0003") {// terminate the game with ctrl+c
     console.log("Game terminated!");
     process.exit();
