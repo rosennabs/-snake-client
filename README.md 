@@ -18,3 +18,8 @@ Before you can run this client, you will need to be running the server side whic
 - Follow steps inside the snek server repo to run the server side
 - Run the development snake client using the `node play.js` command
 - Don't forget to include player's intials in the command line argument (e.g node play.js RCO)
+- Move the snake around by using the following keyboard keys:
+  - w: moves the snake up
+  - a: moves the snake to the left
+  - s: moves the snake down
+  - d: moves the snake to the right
