@@ -15,7 +15,7 @@ const connect = function() {
     
   });
 
-  // timeout the game server when idle for 10 secs
+  // timeout the game server when idle
   conn.setTimeout(120 * 1000);
   conn.on("timeout", () => {
     console.log("You ded cuz you idled!");
